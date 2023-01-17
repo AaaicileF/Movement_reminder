@@ -103,19 +103,15 @@ void loop() {
     colorWipe(strip.Color(  0, 255,   0), 50); // Green
     colorWipe(strip.Color(  0,   0, 255), 50); // Blue
 
-    // // Do a theater marquee effect in various colors... (not  using...)
-    // theaterChase(strip.Color(127, 127, 127), 50); // White, half brightness
-    // theaterChase(strip.Color(127,   0,   0), 50); // Red, half brightness
-    // theaterChase(strip.Color(  0,   0, 127), 50); // Blue, half brightness
-
     rainbow(10);             // Flowing rainbow cycle along the whole strip
-    // theaterChaseRainbow(50);  // Rainbow-enhanced theaterChase variant
+
   }
 
 }
 
 void colorWipe(uint32_t color, int wait) {
-  for (int i = 0; i < strip.numPixels(); i++) { // For each pixel in strip...
+  for (int i = 0; i < strip.numPixels(); i++) { // For each pixel in strip lights when minuets passes
+  //since it is only 24 led lamps in the circle it'll be longer than a minute for a led to light up
     strip.setPixelColor(i, color);         //  Set pixel's color (in RAM)
     strip.show();                          //  Update strip to match
     delay(10);                           //  Pause for a moment
